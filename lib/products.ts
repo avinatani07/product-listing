@@ -1,7 +1,6 @@
 import type { FetchProductsResult, Product } from "@/lib/types";
+import { apiConfig } from "@/lib/apiConfig";
 import fallbackProducts from "@/data/products.json";
-
-const API_URL = "https://fakestoreapi.com/products";
 
 function isProductArray(data: unknown): data is Product[] {
   return (
@@ -25,7 +24,7 @@ function isProductArray(data: unknown): data is Product[] {
  */
 export async function fetchProducts(): Promise<FetchProductsResult> {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(apiConfig.endpoints.products);
 
     if (!response.ok) {
       throw new Error(`API responded with status ${response.status}`);
