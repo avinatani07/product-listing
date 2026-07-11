@@ -49,13 +49,17 @@ export default function ProductCatalog() {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <header className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl dark:text-zinc-50">
-          Product Catalog
+      <header className="mb-10 text-center">
+        <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold">
+          The House Catalog
+        </p>
+        <h1 className="mt-3 font-serif text-4xl font-medium tracking-wide text-ink sm:text-5xl">
+          The Collection
         </h1>
-        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-          Browse products from the Fake Store API. Search filters titles on this
-          page.
+        <div className="mx-auto mt-4 h-px w-16 bg-gold" aria-hidden />
+        <p className="mt-4 text-sm text-ink/60">
+          Browse products from the Fake Store API. Search filters titles on
+          this page.
         </p>
       </header>
 
@@ -67,7 +71,7 @@ export default function ProductCatalog() {
 
       {status === "success" && (
         <>
-          <div className="mb-6">
+          <div className="mb-8 flex flex-col items-center text-center">
             <SearchBox
               value={query}
               onChange={setQuery}
@@ -75,7 +79,7 @@ export default function ProductCatalog() {
               totalCount={products.length}
             />
             {usedFallback && (
-              <p className="mt-2 text-xs text-amber-700 dark:text-amber-400">
+              <p className="mt-2 text-xs text-gold-muted">
                 Live API was unavailable — showing a local data snapshot.
               </p>
             )}

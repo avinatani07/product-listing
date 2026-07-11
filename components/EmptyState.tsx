@@ -5,17 +5,17 @@ type EmptyStateProps = {
 
 export default function EmptyState({ query, onClear }: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-zinc-300 bg-zinc-50 px-6 py-14 text-center dark:border-zinc-700 dark:bg-zinc-900/50">
-      <p className="text-base font-medium text-zinc-800 dark:text-zinc-100">
+    <div className="flex flex-col items-center justify-center border border-dashed border-gold-muted/50 bg-ivory px-6 py-16 text-center">
+      <p className="font-serif text-xl font-medium text-ink">
         No products match &ldquo;{query}&rdquo;
       </p>
-      <p className="mt-2 max-w-sm text-sm text-zinc-500 dark:text-zinc-400">
+      <p className="mt-3 max-w-sm text-sm text-ink/60">
         Try a different keyword, or clear the search to see the full catalog.
       </p>
       <button
         type="button"
         onClick={onClear}
-        className="mt-5 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        className="mt-6 border border-gold bg-white px-6 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-ink transition hover:bg-gold/10 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
       >
         Clear search
       </button>
