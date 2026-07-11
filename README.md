@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Product Catalog
 
-## Getting Started
+A small, responsive product listing page built for the Junior Software Developer (Web & Automation) assignment at The House of Sunita Shekhawat.
 
-First, run the development server:
+Products are fetched from the public [Fake Store API](https://fakestoreapi.com/products). If the API is unavailable, the app falls back to a local JSON snapshot of the same data.
+
+## Tech stack
+
+- **Next.js 15** (App Router)
+- **React 19** + **TypeScript**
+- **Tailwind CSS** (mobile-first, no card component library)
+- Deployed on **Vercel**
+
+## Live demo
+
+> _Add your Vercel URL here after deploying, e.g._  
+> **https://your-project.vercel.app**
+
+## Run locally
 
 ```bash
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Other scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # production build
+npm start       # serve the production build
+npm run lint    # ESLint
+```
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- Responsive card grid: **1 column** (mobile) → **2** (tablet) → **3–4** (desktop)
+- Each card shows image, title, price, and a short description
+- Loading skeleton and error state with retry
+- Client-side search by product title
+- Friendly empty state when search matches nothing
+- Local JSON fallback if the Fake Store API fails
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/                  # App Router layout + page
+components/           # UI: catalog, card, search, loading/error/empty
+lib/                  # Product types + fetch helper
+data/products.json    # Offline / API fallback snapshot
+```
 
-## Deploy on Vercel
+## What I would improve with more time
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Debounce the search input and add category filters / sort by price
+- Product detail route and shared layout polish
+- Server-side fetch with React Suspense for better first paint, while keeping client search
+- Automated tests (see below) and a11y pass (focus order, reduced motion)
+- Image optimization tuning and skeleton that better matches real card heights
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## How I would test this page
+
+**Manual checks**
+
+- Resize through mobile / tablet / desktop breakpoints and confirm grid columns
+- Search for a known title fragment and a nonsense string (empty state)
+- Throttle or block the Fake Store domain in DevTools to verify fallback or error + retry
+- Keyboard-only use of the search field and retry / clear buttons
+
+**Automated (with more time)**
+
+- Unit tests for title filtering and `fetchProducts` fallback behaviour
+- A single Playwright smoke test: page loads, cards appear, search narrows results
+
+## License
+
+Assignment submission — not licensed for redistribution.
