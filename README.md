@@ -4,6 +4,14 @@ A small, responsive product listing page built for the Junior Software Developer
 
 Products are fetched from the public [Fake Store API](https://fakestoreapi.com/products). If the API is unavailable, the app falls back to a local JSON snapshot of the same data.
 
+## Design
+
+The visual design takes its cues from the [Sunita Shekhawat](https://sunitashekhawat.com/) brand site:
+
+- **Typography** — serif display headings (Cormorant Garamond, standing in for questa-grande) paired with a geometric sans (Jost, standing in for Futura PT), with uppercase letter-spaced labels
+- **Palette** — warm white background, near-black ink, gold `#C9A14A` accents, and deep green `#004B32` for prices and primary actions
+- **Feel** — generous white space, hairline borders, square corners, light theme only, matching the brand's boutique aesthetic
+
 ## Tech stack
 
 - **Next.js 15** (App Router)
