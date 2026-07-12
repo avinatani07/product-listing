@@ -21,8 +21,7 @@ The visual design takes its cues from the [Sunita Shekhawat](https://sunitashekh
 
 ## Live demo
 
-> _Add your Vercel URL here after deploying, e.g._  
-> **https://your-project.vercel.app**
+> **https://product-listing-rho-amber.vercel.app/**
 
 ## Run locally
 
